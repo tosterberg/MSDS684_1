@@ -27,24 +27,24 @@ class Bandit:
     # mean accumulates the mean of the entire dataset
     # M2 aggregates the squared distance from the mean
     # count aggregates the number of samples seen so far
-    def update(self,existingAggregate, newValue):
-        (count, mean, M2) = existingAggregate
+    def update(self, existing_aggregate, new_value):
+        (count, mean, m2) = existing_aggregate
         count += 1 
-        delta = newValue - mean
+        delta = new_value - mean
         mean += delta / count
-        delta2 = newValue - mean
-        M2 += delta * delta2
+        delta2 = new_value - mean
+        m2 += delta * delta2
 
-        return (count, mean, M2)
+        return count, mean, m2
 
     # retrieve the mean, variance and sample variance from an aggregate
-    def finalize(self,existingAggregate):
-        (count, mean, M2) = existingAggregate
-        (mean, variance, sampleVariance) = (mean, M2/count, M2/(count - 1)) 
+    def finalize(self, existing_aggregate):
+        (count, mean, m2) = existing_aggregate
+        (mean, variance, sample_variance) = (mean, m2/count, m2/(count - 1))
         if count < 2:
             return float('nan')
         else:
-            return (mean, variance, sampleVariance)
+            return mean, variance, sample_variance
 
             
         

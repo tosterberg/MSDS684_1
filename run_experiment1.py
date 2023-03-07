@@ -2,14 +2,13 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-sns.set()
 import pandas as pd
 from bandit import Bandit
 
+sns.set()
+
 
 def run_experiment(mu, sigma, N):
-
     bandit = Bandit(mu, sigma)
 
     count = np.arange(0, N)
@@ -107,7 +106,6 @@ def single_bandit_plots(count, data, mean, var, svar):
 
 
 def main():
-
     seed = None
     N = 10000
     mu = 1.0
