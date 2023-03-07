@@ -107,12 +107,12 @@ def single_bandit_plots(count, data, mean, var, svar):
 
 def main():
     seed = None
-    N = 10000
+    n = 10000
     mu = 1.0
     sigma = 10.0
 
     random.seed(seed)
-    run_experiment(mu, sigma, N)
+    run_experiment(mu, sigma, n)
 
 
 if __name__ == "__main__":
